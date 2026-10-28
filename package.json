@@ -1,0 +1,26 @@
+{
+  "name": "perennial",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check": "tsc --noEmit",
+    "test": "node --experimental-strip-types --no-warnings --test tests/*.test.ts",
+    "climb-check": "node --experimental-strip-types --no-warnings tools/climb-check.ts",
+    "smoke": "node tools/smoke.mjs",
+    "gates": "npm run check && npm test && npm run climb-check && npm run build && npm run smoke"
+  },
+  "dependencies": {
+    "@slu/web-shell": "file:vendor/slu-web-shell",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/three": "0.180.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0"
+  }
+}
